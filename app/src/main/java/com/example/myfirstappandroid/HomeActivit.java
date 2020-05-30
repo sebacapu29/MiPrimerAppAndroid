@@ -8,12 +8,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivit extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ListView lista;
-    List<String> strLista;
+    List<String> strLista= new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class HomeActivit extends AppCompatActivity implements AdapterView.OnItem
         setTitle(email);
 
         //Adapter, convierte la lista de strings en elementos visualizables basandose en una plantilla o layout que va se va a realizar para definir como se mostraran los datos
-        ArrayAdapter adaptadorListaJuegos = new ArrayAdapter(this,android.R.layout.simple_list_item_1);
+        ArrayAdapter adaptadorListaJuegos = new ArrayAdapter(this,android.R.layout.simple_list_item_1,strLista);
 
         //Vincular el listview con el adaptador
         lista.setAdapter(adaptadorListaJuegos);
