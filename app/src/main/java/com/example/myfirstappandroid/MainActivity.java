@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     EditText txtMail;
     EditText txtClave;
     Button btnIniciar;
+    Button btnIrAFragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +31,10 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         txtMail =  findViewById(R.id.eTxtMail);
         txtClave =  findViewById(R.id.eTxtClave);
         btnIniciar = findViewById(R.id.btnIniciar);
+        btnIrAFragments = findViewById(R.id.btnFragments);
 
         btnIniciar.setOnClickListener(this::onClick);//Listener para asignarle una funcion al evento del boton
+        btnIrAFragments.setOnClickListener(this::onClick2);
     }
 
     @Override
@@ -62,5 +65,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         intent.putExtra("email", email);
 
         startActivity(intent);//Lanza el activity
+    }
+    public void onClick2(View v){
+        Intent intent = new Intent(this, Fragments.class);
+        startActivity(intent);
     }
 }
