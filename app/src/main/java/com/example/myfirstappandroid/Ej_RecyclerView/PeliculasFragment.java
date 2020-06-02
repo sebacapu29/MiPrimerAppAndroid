@@ -12,8 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.myfirstappandroid.Entidades.Pelicula;
 import com.example.myfirstappandroid.R;
-import com.example.myfirstappandroid.Ej_RecyclerView.dummy.DummyContent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -21,6 +24,8 @@ import com.example.myfirstappandroid.Ej_RecyclerView.dummy.DummyContent;
 public class PeliculasFragment extends Fragment {
 
     RecyclerView recyclerView;
+    MyPeliculasRecyclerViewAdapter recyclerAdapterView;
+    List<Pelicula> listaPeliculas;
 
     private static final String ARG_COLUMN_COUNT = "column-count";
 
@@ -70,7 +75,13 @@ public class PeliculasFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyPeliculasRecyclerViewAdapter(DummyContent.ITEMS));
+            //Array Peliculas
+            listaPeliculas = new ArrayList<Pelicula>();
+            listaPeliculas.add(new Pelicula("Avengers: End Game","Ciencia Ficcion","El universo esta en peligro los Avengers protegen la tierra",2019,4.7f,"","Joe Russo"));
+            listaPeliculas.add(new Pelicula("Avatar","Ciencia Ficcion","Militares intentan destruir habitat de una raza que tiene mucha conexion con la naturaleza",2009,4.6f,"","James Cameron"));
+            listaPeliculas.add(new Pelicula("En busca de la felicidad","Drama","Un padre que lucha por mantenerse a flote luego de ser expulsado y viviendo sin ningun lugar con su hijo",2006,4.8f,"","Gabriele Muccino"));
+            recyclerAdapterView = new MyPeliculasRecyclerViewAdapter(listaPeliculas);
+            recyclerView.setAdapter(recyclerAdapterView);
         }
         return view;
     }

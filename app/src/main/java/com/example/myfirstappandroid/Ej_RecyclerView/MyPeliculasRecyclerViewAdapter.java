@@ -7,19 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.myfirstappandroid.Ej_RecyclerView.dummy.DummyContent.DummyItem;
+import com.example.myfirstappandroid.Entidades.Pelicula;
 import com.example.myfirstappandroid.R;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem}.
+ * {@link RecyclerView.Adapter} that can display a {@link Pelicula}.
  */
 public class MyPeliculasRecyclerViewAdapter extends RecyclerView.Adapter<MyPeliculasRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Pelicula> mValues;
 
-    public MyPeliculasRecyclerViewAdapter(List<DummyItem> items) {
+    public MyPeliculasRecyclerViewAdapter(List<Pelicula> items) {
         mValues = items;
     }
 
@@ -32,9 +32,9 @@ public class MyPeliculasRecyclerViewAdapter extends RecyclerView.Adapter<MyPelic
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
+        /*holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mContentView.setText(mValues.get(position).content);*/
     }
 
     @Override
@@ -46,7 +46,7 @@ public class MyPeliculasRecyclerViewAdapter extends RecyclerView.Adapter<MyPelic
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+
 
         public ViewHolder(View view) {
             super(view);
