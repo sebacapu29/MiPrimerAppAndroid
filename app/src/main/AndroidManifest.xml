@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Ej_Toast_SanckBar.Toast_SnackBar"></activity>
+        <activity android:name=".Ej_RecyclerView.Peliculas"></activity>
+        <activity android:name=".Ej_Toast_SanckBar.Toast_SnackBar" />
         <activity
             android:name=".Fragments"
             android:label="@string/title_activity_fragments"

@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myfirstappandroid.Ej_ListViews.HomeActivit;
+import com.example.myfirstappandroid.Ej_RecyclerView.Peliculas;
 import com.example.myfirstappandroid.Ej_Toast_SanckBar.Toast_SnackBar;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     EditText txtClave;
     Button btnIniciar,btnToastSank;
     Button btnIrAFragments;
+    Button btnRecycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,12 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         btnIniciar = findViewById(R.id.btnIniciar);
         btnToastSank = findViewById(R.id.btnToastSnack);
         btnIrAFragments = findViewById(R.id.btnFragments);
+        btnRecycler = findViewById(R.id.btnRecycler);
 
         btnIniciar.setOnClickListener(this::onClick);//Listener para asignarle una funcion al evento del boton
         btnIrAFragments.setOnClickListener(this::onClick2);
         btnToastSank.setOnClickListener(this::onClickToastSnak);
+        btnRecycler.setOnClickListener(this::onClick);
     }
 
     @Override
@@ -44,23 +48,11 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         //String email = this.txtMail.getText().toString();//Obtener los valores de los controles
         String email = "Bienvenido";
         //String clave = this.txtClave.getText().toString();
-        Toast toast1;
 
-       /* if(email.isEmpty()){
-            toast1 = Toast.makeText(this,"Debe poner un email",Toast.LENGTH_LONG);
-            toast1.show();
-            return;
+        if(v.getId() == R.id.btnRecycler){
+            intent = new Intent(this, Peliculas.class);
+            startActivity(intent);
         }
-        else if(clave.isEmpty()){
-            toast1 = Toast.makeText(this,"Debe poner un contraseña",Toast.LENGTH_LONG);
-            toast1.show();
-            return;
-        }
-        else if(email.isEmpty()&& clave.isEmpty()){
-            toast1 = Toast.makeText(this,"Debe completar los campos",Toast.LENGTH_LONG);
-            toast1.show();
-            return;
-        }*/
 
         //Enviar parametros a la otra vista
         intent.putExtra("email", email);
