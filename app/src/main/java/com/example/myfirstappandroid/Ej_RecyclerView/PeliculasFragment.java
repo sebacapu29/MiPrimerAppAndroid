@@ -77,10 +77,10 @@ public class PeliculasFragment extends Fragment {
             }
             //Array Peliculas
             listaPeliculas = new ArrayList<Pelicula>();
-            listaPeliculas.add(new Pelicula("Avengers: End Game","Ciencia Ficcion","El universo esta en peligro los Avengers protegen la tierra",2019,4.7f,"","Joe Russo"));
-            listaPeliculas.add(new Pelicula("Avatar","Ciencia Ficcion","Militares intentan destruir habitat de una raza que tiene mucha conexion con la naturaleza",2009,4.6f,"","James Cameron"));
-            listaPeliculas.add(new Pelicula("En busca de la felicidad","Drama","Un padre que lucha por mantenerse a flote luego de ser expulsado y viviendo sin ningun lugar con su hijo",2006,4.8f,"","Gabriele Muccino"));
-            recyclerAdapterView = new MyPeliculasRecyclerViewAdapter(listaPeliculas);
+            listaPeliculas.add(new Pelicula("Avengers: End Game","Ciencia Ficcion","El universo esta en peligro los Avengers protegen la tierra",2019,4.7f,"https://cnet3.cbsistatic.com/img/Y8HinEMU2tS7T2HkiVGSVCMO54s=/2019/03/14/b085c68b-69c3-478d-b336-040abde6a99a/screen-shot-2019-03-14-at-12-33-32.png","Joe Russo"));
+            listaPeliculas.add(new Pelicula("Avatar","Ciencia Ficcion","Militares intentan destruir habitat de una raza que tiene mucha conexion con la naturaleza",2009,4.6f,"https://www.cinemascomics.com/wp-content/uploads/2020/01/avatar-2-primeras-imagenes.jpg","James Cameron"));
+            listaPeliculas.add(new Pelicula("En busca de la felicidad","Drama","Un padre que lucha por mantenerse a flote luego de ser expulsado y viviendo sin ningun lugar con su hijo",2006,4.8f,"https://fundacioncirro.files.wordpress.com/2014/01/en-busca-de-la-felicidad.jpg","Gabriele Muccino"));
+            recyclerAdapterView = new MyPeliculasRecyclerViewAdapter(getActivity(), listaPeliculas);
             recyclerView.setAdapter(recyclerAdapterView);
         }
         return view;

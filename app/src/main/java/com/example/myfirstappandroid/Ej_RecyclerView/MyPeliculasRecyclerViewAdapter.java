@@ -2,11 +2,15 @@ package com.example.myfirstappandroid.Ej_RecyclerView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.myfirstappandroid.Entidades.Pelicula;
 import com.example.myfirstappandroid.R;
 
@@ -18,8 +22,9 @@ import java.util.List;
 public class MyPeliculasRecyclerViewAdapter extends RecyclerView.Adapter<MyPeliculasRecyclerViewAdapter.ViewHolder> {
 
     private final List<Pelicula> mValues;
-
-    public MyPeliculasRecyclerViewAdapter(List<Pelicula> items) {
+    private Context ctx;
+    public MyPeliculasRecyclerViewAdapter(Context ctx, List<Pelicula> items) {
+        ctx=ctx;
         mValues = items;
     }
 
@@ -32,9 +37,14 @@ public class MyPeliculasRecyclerViewAdapter extends RecyclerView.Adapter<MyPelic
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        /*holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);*/
+        //Rescatamos la posicion del elemento en la posicion que ocupa
+        holder.mItem = mValues.get(position);
+        holder.textViewTitulo.setText(holder.mItem.getTitulo());
+        holder.textViewAnio.setText(holder.mItem.getAnio());
+        holder.textViewAutor.setText(holder.mItem.getAutor());
+        holder.textViewDescripcion.setText(holder.mItem.getDescripcion());
+          holder.ratingBarPelicula.setRating(holder.mItem.getPuntaje());
+          Glide.with(ctx).load(holder.mItem.getUrlFoto()).centerCrop().into(holder.imgFoto);
     }
 
     @Override
@@ -44,14 +54,25 @@ public class MyPeliculasRecyclerViewAdapter extends RecyclerView.Adapter<MyPelic
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
+        public final TextView textViewTitulo;
+        public final TextView textViewDescripcion;
+        public final TextView textViewAutor;
+        public final TextView textViewAnio;
+        public final ImageView imgFoto;
+        public final RatingBar ratingBarPelicula;
         public final TextView mContentView;
-
+        public Pelicula mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
+            textViewTitulo = view.findViewById(R.id.textViewTitulo);
+            textViewDescripcion = view.findViewById(R.id.textViewDescripcion);
+            textViewAutor = view.findViewById(R.id.textViewAutor);
+            textViewAnio = view.findViewById(R.id.textViewAnio);
+            imgFoto = view.findViewById(R.id.imgFoto);
+            ratingBarPelicula = view.findViewById(R.id.ratingBarPelicula);
+           //mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
         }
 
